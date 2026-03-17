@@ -31,6 +31,7 @@ from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.naive_bayes import GaussianNB
 
 def render_tab_posteda():
+    df = st.session_state.df_processed
     # TAB 5 — POST-PREPROCESSING EDA
     # ══════════════════════════════════════════════
     st.markdown('<div class="section-header">🔍 Post-Preprocessing EDA & Visuals</div>', unsafe_allow_html=True)
