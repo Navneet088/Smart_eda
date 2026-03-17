@@ -31,6 +31,7 @@ from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.naive_bayes import GaussianNB
 
 def render_tab_missing():
+    df = st.session_state.df_processed
     # TAB 3 — MISSING VALUES
     # ══════════════════════════════════════════════
     st.markdown('<div class="section-header">Missing Value Summary</div>', unsafe_allow_html=True)
