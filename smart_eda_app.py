@@ -28,14 +28,9 @@ except ImportError:
 
 from sklearn.preprocessing import (
     StandardScaler, MinMaxScaler, RobustScaler,
-    PowerTransformer, QuantileTransformer, LabelEncoder, OneHotEncoder,
-    OrdinalEncoder, BinaryEncoder
+    PowerTransformer, QuantileTransformer, LabelEncoder,
+    OneHotEncoder, OrdinalEncoder, MaxAbsScaler, Normalizer
 )
-try:
-    import category_encoders as ce
-    HAS_CE = True
-except ImportError:
-    HAS_CE = False
 from sklearn.feature_selection import (
     SelectKBest, f_classif, f_regression, mutual_info_classif, mutual_info_regression
 )
@@ -884,7 +879,6 @@ with tab4:
 | Normalizer | x/||x||₂ | Text, cosine similarity |
 """)
         if st.button("⚡ Apply Scaler", key="btn_scaler") and scale_cols:
-            from sklearn.preprocessing import MaxAbsScaler, Normalizer
             tmp = st.session_state.df_processed.copy()
             if scaler_type.startswith("Standard"):       scaler = StandardScaler()
             elif scaler_type.startswith("Min"):          scaler = MinMaxScaler()
@@ -2595,4 +2589,3 @@ Be specific — use actual column names and statistics from the dataset."""
         st.session_state.llm_chat_history.append({"role": "user", "content": full_report_prompt})
         st.session_state.llm_pending = True
         st.rerun()
-
