@@ -31,6 +31,7 @@ from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.naive_bayes import GaussianNB
 
 def render_tab_eda():
+    df = st.session_state.df_processed
     # TAB 2 — EDA & VISUALS
     # ══════════════════════════════════════════════
     num_cols = df.select_dtypes(include=np.number).columns.tolist()
